@@ -50,9 +50,9 @@ onAuthStateChanged(auth, function(user){
 </script>
 <style>
 :root{
-  --bg:#F7F6F2;--surface:#FFFFFF;--surface2:#F2F1EC;--surface3:#E8E6DC;
-  --border:rgba(0,0,0,.08);--border2:rgba(0,0,0,.13);
-  --ink0:#0A1628;--ink1:#2D3748;--ink2:#718096;--ink3:#A0ADB8;
+  --bg:#EEF2FF;--surface:#FFFFFF;--surface2:#F8FAFC;--surface3:#EAF0FF;
+  --border:rgba(15,23,42,.08);--border2:rgba(15,23,42,.14);
+  --ink0:#0F172A;--ink1:#334155;--ink2:#64748B;--ink3:#94A3B8;
   --gold:#B8960C;--gold-bg:rgba(184,150,12,.10);--gold-bd:rgba(184,150,12,.28);
   --green:#047857;--green-bg:rgba(4,120,87,.09);--green-bd:rgba(4,120,87,.25);
   --red:#C53030;--red-bg:rgba(197,48,48,.09);--red-bd:rgba(197,48,48,.25);
@@ -61,15 +61,15 @@ onAuthStateChanged(auth, function(user){
   --violet:#553C9A;--violet-bg:rgba(85,60,154,.09);--violet-bd:rgba(85,60,154,.25);
   --orange:#C05621;--orange-bg:rgba(192,86,33,.09);--orange-bd:rgba(192,86,33,.25);
   --teal:#0D9488;--teal-bg:rgba(13,148,136,.09);--teal-bd:rgba(13,148,136,.25);
-  --shadow-sm:0 1px 4px rgba(0,0,0,.07);
-  --shadow-md:0 4px 16px rgba(0,0,0,.10);
-  --shadow-lg:0 12px 40px rgba(0,0,0,.14);
+  --shadow-sm:0 2px 10px rgba(15,23,42,.06);
+  --shadow-md:0 10px 26px rgba(15,23,42,.12);
+  --shadow-lg:0 22px 52px rgba(15,23,42,.18);
   --r-sm:10px;--r-md:16px;--r-lg:22px;--r-xl:28px;
   --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{height:100%;-webkit-text-size-adjust:100%}
-body{height:100%;overflow:hidden;background:var(--bg);font-family:var(--font);
+body{height:100%;overflow:hidden;background:radial-gradient(900px 420px at 95% -6%,rgba(59,130,246,.14),transparent 60%),radial-gradient(700px 420px at 0% 100%,rgba(124,58,237,.12),transparent 62%),var(--bg);font-family:var(--font);
   -webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;
   overscroll-behavior:none;-webkit-overflow-scrolling:touch;color:var(--ink0)}
 #app{height:100%;display:flex;flex-direction:column;overflow:hidden;
@@ -95,7 +95,7 @@ textarea{resize:none}
   font-family:var(--font);font-weight:700;border:none;cursor:pointer;
   transition:all .14s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .btn:active{transform:scale(.96);opacity:.85}
-.btn-primary{background:var(--ink0);color:#fff;letter-spacing:.01em}
+.btn-primary{background:linear-gradient(135deg,#0F172A,#1E3A8A,#0EA5E9);color:#fff;letter-spacing:.01em;box-shadow:0 8px 20px rgba(30,58,138,.25)}
 .btn-gold{background:linear-gradient(135deg,#8B6914,var(--gold),#D4A820);color:#fff;box-shadow:0 4px 18px rgba(184,150,12,.32)}
 .btn-ghost{background:var(--surface2);border:1.5px solid var(--border2);color:var(--ink1)}
 .btn-danger{background:var(--red-bg);border:1.5px solid var(--red-bd);color:var(--red)}
@@ -131,8 +131,8 @@ textarea{resize:none}
 .sheet-handle{width:36px;height:4px;background:var(--border2);border-radius:99px;margin:14px auto 2px}
 .sheet-body{padding:16px 20px 10px}
 
-.nav{background:var(--surface);border-top:1px solid var(--border);display:flex;flex-shrink:0;
-  box-shadow:0 -6px 24px rgba(0,0,0,.07);padding-bottom:env(safe-area-inset-bottom,0px)}
+.nav{background:rgba(255,255,255,.9);border-top:1px solid rgba(148,163,184,.24);display:flex;flex-shrink:0;
+  box-shadow:0 -10px 24px rgba(15,23,42,.10);padding-bottom:env(safe-area-inset-bottom,0px);backdrop-filter:blur(10px) saturate(125%);-webkit-backdrop-filter:blur(10px) saturate(125%)}
 .nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;padding:9px 0 5px;
   border:none;background:none;color:var(--ink3);font-size:7px;font-weight:700;
   letter-spacing:.3px;gap:2px;cursor:pointer;font-family:var(--font);
@@ -141,9 +141,9 @@ textarea{resize:none}
 .nav-ico{font-size:19px;display:block}
 
 #fab{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 64px);
-  width:58px;height:58px;border-radius:50%;background:var(--ink0);border:none;
+  width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#1E1B4B,#3730A3,#0EA5E9);border:none;
   color:#fff;font-size:30px;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 32px rgba(10,22,40,.38);z-index:100;touch-action:manipulation;
+  box-shadow:0 10px 28px rgba(30,58,138,.38);z-index:100;touch-action:manipulation;
   transition:transform .15s,box-shadow .15s}
 #fab:active{transform:scale(.9);box-shadow:0 4px 16px rgba(10,22,40,.28)}
 #fab.hidden{display:none}
@@ -151,8 +151,8 @@ textarea{resize:none}
 #toast{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);left:50%;
   transform:translateX(-50%) translateY(-12px);color:#fff;padding:10px 22px;
   border-radius:999px;font-size:13px;font-weight:700;z-index:9000;pointer-events:none;
-  box-shadow:0 8px 32px rgba(0,0,0,.24);max-width:90vw;white-space:nowrap;
-  opacity:0;transition:opacity .22s,transform .22s;letter-spacing:.01em}
+  box-shadow:0 10px 28px rgba(15,23,42,.28);border:1px solid rgba(148,163,184,.25);max-width:90vw;white-space:nowrap;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;transition:opacity .22s,transform .22s;letter-spacing:.01em}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 .dlg-wrap{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:20px}
@@ -165,7 +165,7 @@ textarea{resize:none}
   background:var(--bg);padding:52px 24px calc(env(safe-area-inset-bottom,0px)+40px)}
 
 .card{background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);
-  border:1px solid var(--border);overflow:hidden;margin-bottom:10px}
+  border:1px solid var(--border);overflow:hidden;margin-bottom:10px;backdrop-filter:saturate(115%)}
 .card-bordered{border-width:1.5px}
 
 .pill{display:inline-flex;align-items:center;gap:3px;font-weight:700;border-radius:99px;
@@ -200,9 +200,9 @@ textarea{resize:none}
 .sec-hdr-lbl{font-size:10px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:var(--ink2)}
 .sec-hdr-cnt{font-size:10px;font-weight:800;padding:2px 10px;border-radius:99px;letter-spacing:.02em}
 
-header{background:var(--surface);border-bottom:1px solid var(--border);
+header{background:rgba(255,255,255,.9);border-bottom:1px solid rgba(148,163,184,.22);
   padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;
-  box-shadow:0 2px 12px rgba(0,0,0,.06)}
+  box-shadow:0 6px 18px rgba(15,23,42,.08);backdrop-filter:blur(8px) saturate(125%);-webkit-backdrop-filter:blur(8px) saturate(125%)}
 
 /* PRIORITY BADGE */
 .prio-badge{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:900;
@@ -348,6 +348,8 @@ var PREP_PIATTI =function(p){return"mep_piatti_"+p+"_v2";};
 var PREP_DONE   =function(p){return"mep_done_"+p+"_v2";};
 var PREP_SDONE  =function(p){return"mep_sdone_"+p+"_v1";};
 var PREP_NOTES  =function(p){return"mep_notes_"+p+"_v1";};  // note giornaliere calendario
+var PREP_ARCH   =function(p){return"mep_arch_"+p+"_v1";};   // archivio preparazioni completate
+var PREP_DISTR  =function(p){return"mep_distr_"+p+"_v1";};  // distribuzioni modificabili
 
 // ── SYNC BRIDGE KEY (condivisa tramite Firestore + localStorage fallback) ──
 var BRIDGE_KEY="mep_sync_bridge_v1";
@@ -367,10 +369,14 @@ var S={
   doneDate:{},
   notes:{},  // {date: "testo nota"} — note giornaliere
   prepView:"lista",  // "lista" | "calendario"
+  prepArchivio:[],  // archivio preparazioni completate e trasferite
+  prepDistrib:[],   // storico distribuzione frigo/congelatore
+  calWeekOffset:0,   // offset settimane per navigazione calendario
 };
 // Bridge in memoria — aggiornato da Firestore real-time
 var _bridgeCache={prods:[],frigo:[],lastUpdate:""};
 var _bridgeUnsubscribe=null;
+var _bridgeUiRaf=0;
 
 // ══════════════════════════════════════════════════════════════════════
 //  UTILS
@@ -535,6 +541,65 @@ function persist(){
 function persistDone(){stor.set(PREP_DONE(S.profile.partita),{day:today(),week:isoWeek(),ids:S.done,dates:S.doneDate||{}});}
 function persistSdone(){stor.set(PREP_SDONE(S.profile.partita),{day:today(),ids:S.sdone});}
 function persistNotes(){stor.set(PREP_NOTES(S.profile.partita),{notes:S.notes||{},_updatedAt:new Date().toISOString()});}
+function persistPrepArchivio(){
+  var cutoff=new Date();cutoff.setDate(cutoff.getDate()-30);
+  S.prepArchivio=S.prepArchivio.filter(function(x){
+    if(!x.archiviato)return false;
+    var d=new Date(x.archiviato+"T00:00:00");return d>=cutoff;
+  });
+  stor.set(PREP_ARCH(S.profile.partita),{items:S.prepArchivio});
+}
+function persistPrepDistrib(){
+  stor.set(PREP_DISTR(S.profile.partita),{items:Array.isArray(S.prepDistrib)?S.prepDistrib:[]});
+}
+
+// ── Prima lettera maiuscola ──
+function capFirst(s){if(!s)return"";return s.charAt(0).toUpperCase()+s.slice(1);}
+function applyCapFirst(inp){
+  inp.addEventListener("input",function(){
+    var v=inp.value;if(!v)return;
+    var c=inp.selectionStart;
+    var capped=v.charAt(0).toUpperCase()+v.slice(1);
+    if(capped!==v){inp.value=capped;try{inp.setSelectionRange(c,c);}catch(e){}}
+  });
+}
+
+// ── Autocomplete dropdown ──
+function mkAutoSuggest(inp,getSugg){
+  var drop=el("div",{style:"position:absolute;left:0;right:0;top:100%;z-index:9999;background:#fff;border:1.5px solid var(--border2);border-radius:var(--r-sm);box-shadow:var(--shadow-lg);max-height:180px;overflow-y:auto;display:none"});
+  var wrap=inp.parentNode;if(!wrap)return drop;
+  wrap.style.position="relative";wrap.appendChild(drop);
+  function hideDrop(){drop.style.display="none";}
+  function showDrop(items){
+    drop.innerHTML="";
+    if(!items.length){hideDrop();return;}
+    items.forEach(function(s){
+      var row=el("div",{style:"padding:10px 14px;font-size:14px;font-weight:600;color:var(--ink0);cursor:pointer;border-bottom:1px solid var(--border)",text:s});
+      row.addEventListener("mousedown",function(e){e.preventDefault();inp.value=s;inp.dispatchEvent(new Event("input"));hideDrop();});
+      row.addEventListener("touchstart",function(e){e.preventDefault();inp.value=s;inp.dispatchEvent(new Event("input"));hideDrop();},{passive:false});
+      drop.appendChild(row);
+    });
+    drop.style.display="block";
+  }
+  inp.addEventListener("input",function(){
+    var v=(inp.value||"").trim().toLowerCase();
+    if(!v){hideDrop();return;}
+    var suggs=getSugg(v).filter(function(s){return s&&s.toLowerCase().indexOf(v)>=0&&s.toLowerCase()!==v;}).slice(0,6);
+    showDrop(suggs);
+  });
+  inp.addEventListener("blur",function(){setTimeout(hideDrop,200);});
+  inp.addEventListener("focus",function(){
+    var v=(inp.value||"").trim().toLowerCase();
+    if(v){var suggs=getSugg(v).filter(function(s){return s&&s.toLowerCase().indexOf(v)>=0;}).slice(0,6);showDrop(suggs);}
+  });
+  return drop;
+}
+function getMepAllNomi(){
+  var seen={};var res=[];
+  S.tasks.forEach(function(t){if(t.nome&&!seen[t.nome.toLowerCase()]){seen[t.nome.toLowerCase()]=1;res.push(t.nome);}});
+  S.prods.forEach(function(p){if(p.nome&&!seen[p.nome.toLowerCase()]){seen[p.nome.toLowerCase()]=1;res.push(p.nome);}});
+  return res;
+}
 
 function purgeDone(d){
   if(!d)return{ids:[],dates:{}};
@@ -583,9 +648,13 @@ function _subscribeToBridge(partita){
     if(snap.exists()){
       _bridgeCache=snap.data();
       try{localStorage.setItem(BRIDGE_KEY,JSON.stringify(_bridgeCache));}catch(e){}
-      // Aggiorna UI scheda frigo in tempo reale
+      // Aggiorna UI scheda frigo in tempo reale (throttle via rAF per fluidità)
       if(S.tab==="frigo"&&document.getElementById("main-area")){
-        renderFrigo(document.getElementById("main-area"));
+        if(_bridgeUiRaf)cancelAnimationFrame(_bridgeUiRaf);
+        _bridgeUiRaf=requestAnimationFrame(function(){
+          var area=document.getElementById("main-area");
+          if(area&&S.tab==="frigo")renderFrigoSync(area);
+        });
       }
     }
   },function(e){console.warn("Bridge onSnapshot:",e.message);});
@@ -685,6 +754,8 @@ function boot(){
     S.done=pd.ids;S.doneDate=pd.dates||{};
     S.sdone=sd?purgeSdone(sd):[];
     S.notes=(nt&&nt.notes)?nt.notes:{};
+    var ar=stor.get(PREP_ARCH(p));S.prepArchivio=(ar&&Array.isArray(ar.items))?ar.items:[];
+    var ds=stor.get(PREP_DISTR(p));S.prepDistrib=(ds&&Array.isArray(ds.items))?ds.items:[];
     // Avvia Firebase sync
     if(window._FBReady&&window._initFirebaseSync)window._initFirebaseSync();
     else{_subscribeToBridge(p);syncProdsToBridge();}
@@ -866,6 +937,40 @@ function renderPrep(area){
     area.appendChild(sugBar);
   }
   var lw=el("div",{style:"flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:10px 14px;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 84px)"});area.appendChild(lw);
+
+  // ── Append archivio preparazioni in fondo alla lista scorrevole ──
+  function appendArchivioPrep(){
+    if(!S.prepArchivio||!S.prepArchivio.length)return;
+    var arch=S.prepArchivio.slice().sort(function(a,b){return b.archiviato>a.archiviato?1:-1;});
+    var archCard=el("div",{style:"margin-top:16px;border:1.5px solid var(--border2);border-radius:var(--r-md);overflow:hidden"});
+    var archHdr=el("button",{type:"button",style:"width:100%;padding:12px 14px;background:var(--surface2);border:none;border-bottom:1px solid var(--border);text-align:left;cursor:pointer;display:flex;align-items:center;justify-content:space-between"});
+    archHdr.innerHTML="<span style='font-size:12px;font-weight:800;color:var(--ink1)'>📋 Archivio preparazioni completate ("+arch.length+")</span><span style='font-size:11px;color:var(--ink3)' id='prep-arch-chev'>▼</span>";
+    var archBody=el("div",{style:"display:none"});
+    arch.forEach(function(x){
+      var ar=el("div",{style:"display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border)"});
+      ar.innerHTML="<span style='font-size:14px'>✅</span><div style='flex:1;min-width:0'><div style='font-size:13px;font-weight:700;color:var(--ink1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis'>"+esc(x.nome)+"</div><div style='font-size:10px;color:var(--ink3)'>"+esc(x.archiviato)+(x._qtyFrigo&&x._qtyFrigo>0?" · +"+fmtQty(x._qtyFrigo)+" frigo":"")+(x._qtyCong&&x._qtyCong>0?" · ❄ +"+fmtQty(x._qtyCong):"")+"</div></div>";
+      archBody.appendChild(ar);
+    });
+    archBody.appendChild(el("div",{style:"padding:8px 14px;font-size:10px;color:var(--ink3);text-align:center",text:"Auto-eliminazione dopo 30 giorni"}));
+    var archOpen=false;
+    archHdr.addEventListener("click",function(){archOpen=!archOpen;archBody.style.display=archOpen?"block":"none";var chev=document.getElementById("prep-arch-chev");if(chev)chev.textContent=archOpen?"▲":"▼";});
+    append(archCard,archHdr,archBody);lw.appendChild(archCard);
+
+    if(Array.isArray(S.prepDistrib)&&S.prepDistrib.length){
+      var dist=S.prepDistrib.slice().sort(function(a,b){return b.data>a.data?1:-1;});
+      var dCard=el("div",{style:"margin-top:12px;border:1.5px solid var(--blue-bd);border-radius:var(--r-md);overflow:hidden"});
+      dCard.appendChild(el("div",{style:"padding:10px 14px;background:var(--blue-bg);font-size:12px;font-weight:800;color:var(--blue)",text:"🔁 Distribuzioni modificabili ("+dist.length+")"}));
+      dist.forEach(function(x){
+        var r=el("div",{style:"display:flex;align-items:center;gap:8px;padding:10px 12px;border-top:1px solid var(--border)"});
+        r.innerHTML="<div style='flex:1;min-width:0'><div style='font-size:12px;font-weight:700;color:var(--ink1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis'>"+esc(x.nome)+"</div><div style='font-size:10px;color:var(--ink3)'>◆ "+fmtQty(x.qtyFrigo)+" · ❄ "+fmtQty(x.qtyCong)+" "+esc(x.unit)+(x.lotto?" · L:"+esc(x.lotto):"")+(x.ddt?" · DDT:"+esc(x.ddt):"")+"</div></div>";
+        var del=el("button",{type:"button",class:"btn btn-sq sm danger",text:"✕"});
+        del.addEventListener("click",function(){S.prepDistrib=S.prepDistrib.filter(function(d){return d.id!==x.id;});persistPrepDistrib();flash("Distribuzione rimossa","info");refreshAll();});
+        r.appendChild(del);dCard.appendChild(r);
+      });
+      lw.appendChild(dCard);
+    }
+  }
+
   function rl(){
     lw.innerHTML="";
     var tasks=S.tasks.slice();
@@ -887,6 +992,7 @@ function renderPrep(area){
     if(done.length){shdr(lw,"var(--ink3)","✓ Completate",""+done.length);done.forEach(function(t){lw.appendChild(buildTaskCard(t));});}
   }
   rl();
+  appendArchivioPrep();
 }
 
 // ── Suggerimenti automatici: prep urgenti o prodotti con giacenza bassa ──
@@ -913,71 +1019,154 @@ function calcSuggerimenti(){
 function renderPrepCalendario(area){
   var days=["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"];
   var dNow=new Date();var todayStr=today();
-  // Calcola per ogni prep, le prossime occorrenze nei 7 giorni
+
+  // ── Calcola prep per data: frequenza + planDate manuale ──
   function getPrepsForDate(dateStr){
-    var result=[];
+    var result=[];var seen={};
     S.tasks.forEach(function(t){
+      // 1. Prep con data pianificata esplicita per questo giorno
+      if(t.planDate===dateStr&&!seen[t.id]){result.push({task:t,manual:true});seen[t.id]=true;return;}
+      // 2. Prep calcolate da frequenza
       var fo=FREQ_MAP[t.freq];if(!fo)return;
-      // Data ultima esecuzione
-      var lastDone=S.doneDate&&S.doneDate[isDoneKey(t)];
-      if(!lastDone&&!t.lastDone)return; // mai fatto, includi sempre oggi
-      var lastD=lastDone||t.lastDone;
-      var lastMs=new Date(lastD+"T00:00:00").getTime();
-      var targetMs=new Date(dateStr+"T00:00:00").getTime();
-      var diffDays=Math.round((targetMs-lastMs)/864e5);
-      if(diffDays>=fo.days||(diffDays===0&&dateStr===todayStr&&S.done.indexOf(isDoneKey(t))<0)){result.push(t);}
+      var lastD=(S.doneDate&&S.doneDate[isDoneKey(t)])||t.lastDone;
+      if(lastD){
+        var diffDays=Math.round((new Date(dateStr+"T00:00:00")-new Date(lastD+"T00:00:00"))/864e5);
+        if(diffDays>=fo.days&&!seen[t.id]){result.push({task:t,manual:false});seen[t.id]=true;}
+      } else {
+        // Mai eseguita: mostra in ogni giorno fino a quella corrente
+        if(dateStr<=todayStr&&!seen[t.id]){result.push({task:t,manual:false});seen[t.id]=true;}
+      }
     });
-    // Aggiungi prep mai fatte nel giorno di oggi
-    if(dateStr===todayStr){
-      S.tasks.forEach(function(t){
-        var neverDone=!S.doneDate||!S.doneDate[isDoneKey(t)];
-        if(neverDone&&!result.find(function(r){return r.id===t.id;})){result.push(t);}
-      });
-    }
     return result;
   }
+
+  // ── Header con navigazione settimana e input data manuale ──
+  var weekOffset=S.calWeekOffset||0;
+  var startDate=new Date(dNow);startDate.setDate(dNow.getDate()+weekOffset*7);
+
+  var hdr=el("div",{style:"padding:8px 12px;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:8px;flex-shrink:0"});
+  var prevBtn=el("button",{type:"button",style:"width:32px;height:32px;border-radius:9px;border:1px solid #e5e7eb;background:#fff;font-size:16px;cursor:pointer",text:"‹"});
+  prevBtn.addEventListener("click",function(){S.calWeekOffset=(S.calWeekOffset||0)-1;renderPrep(area);});
+  var nextBtn=el("button",{type:"button",style:"width:32px;height:32px;border-radius:9px;border:1px solid #e5e7eb;background:#fff;font-size:16px;cursor:pointer",text:"›"});
+  nextBtn.addEventListener("click",function(){S.calWeekOffset=(S.calWeekOffset||0)+1;renderPrep(area);});
+  var todayBtn=el("button",{type:"button",style:"font-size:11px;font-weight:700;padding:0 12px;height:32px;border-radius:9px;border:1.5px solid #0A1628;background:#fff;color:#0A1628;cursor:pointer",text:"Oggi"});
+  todayBtn.addEventListener("click",function(){S.calWeekOffset=0;renderPrep(area);});
+  // Input data diretta
+  var jumpLabel=el("div",{style:"font-size:10px;font-weight:700;color:#9CA3AF;margin-left:auto;margin-right:2px",text:"Vai al:"});
+  var jumpInput=el("input",{type:"date",value:todayStr,style:"height:32px;padding:0 8px;border:1px solid #e5e7eb;border-radius:9px;font-size:11px;font-weight:600;color:#374151;background:#fff;cursor:pointer"});
+  jumpInput.addEventListener("change",function(){
+    var d=new Date(jumpInput.value+"T00:00:00");
+    var diff=Math.round((d-new Date(todayStr+"T00:00:00"))/864e5);
+    S.calWeekOffset=Math.floor(diff/7);renderPrep(area);
+  });
+  append(hdr,prevBtn,todayBtn,nextBtn,jumpLabel,jumpInput);area.appendChild(hdr);
+
   var calScroll=el("div",{style:"flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 84px)"});
+
   for(var i=0;i<7;i++){
     (function(i){
-      var d=new Date(dNow);d.setDate(dNow.getDate()+i);
+      var d=new Date(startDate);d.setDate(startDate.getDate()+i);
       var dateStr=d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate());
       var isToday=dateStr===todayStr;
-      var preps=getPrepsForDate(dateStr);
+      var prepsData=getPrepsForDate(dateStr);
       var note=S.notes&&S.notes[dateStr]?S.notes[dateStr]:"";
-      var dayCard=el("div",{style:"margin:8px 12px 0;border-radius:14px;overflow:hidden;border:1.5px solid "+(isToday?"#0A1628":"#e5e7eb")+";background:"+(isToday?"#f8fafc":"#fff")});
-      var dayHead=el("div",{style:"display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:"+(isToday?"#0A1628":"#f9fafb")});
-      var dl=el("div");
-      dl.innerHTML="<span style='font-size:11px;font-weight:800;color:"+(isToday?"rgba(255,255,255,.7)":"#9CA3AF")+";text-transform:uppercase;letter-spacing:.5px'>"+days[d.getDay()].substring(0,3)+"</span><span style='font-size:18px;font-weight:900;color:"+(isToday?"#fff":"#111827")+"'> "+d.getDate()+"</span>"+(isToday?"<span style='font-size:9px;font-weight:700;padding:2px 8px;border-radius:99px;background:rgba(255,255,255,.15);color:#fff;margin-left:8px'>OGGI</span>":"");
-      var cnt=el("div",{style:"font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;background:"+(isToday?"rgba(255,255,255,.15)":"rgba(0,0,0,.06)")+";color:"+(isToday?"#fff":"#6B7280")},text:(preps.length||"0")+" prep");
-      cnt.textContent=(preps.length||"0")+" prep";
-      append(dayHead,dl,cnt);dayCard.appendChild(dayHead);
-      // Nota del giorno
-      var noteRow=el("div",{style:"padding:6px 14px;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;gap:6px"});
-      var noteI=el("input",{class:"inp",type:"text",placeholder:"📝 Nota giorno…",value:note,style:"font-size:11px;height:28px;padding:0 8px;flex:1;border-radius:7px;background:transparent;border-color:transparent"});
-      (function(dateStr,noteI){
-        noteI.addEventListener("blur",function(){if(!S.notes)S.notes={};S.notes[dateStr]=noteI.value.trim();persistNotes();});
-        noteI.addEventListener("keydown",function(e){if(e.key==="Enter")noteI.blur();});
+
+      var dayCard=el("div",{style:"margin:8px 12px 0;border-radius:16px;overflow:hidden;border:1.5px solid "+(isToday?"#0A1628":"#e5e7eb")+";background:#fff;box-shadow:"+(isToday?"0 2px 12px rgba(10,22,40,.1)":"0 1px 3px rgba(0,0,0,.04)")});
+
+      // ── Day header cliccabile per aggiungere prep ──
+      var dayHead=el("div",{style:"display:flex;align-items:center;padding:10px 14px;cursor:pointer;background:"+(isToday?"#0A1628":"#f9fafb")});
+      var dl=el("div",{style:"flex:1"});
+      dl.innerHTML=
+        "<span style='font-size:10px;font-weight:800;color:"+(isToday?"rgba(255,255,255,.6)":"#9CA3AF")+";text-transform:uppercase;letter-spacing:.6px'>"+days[d.getDay()].substring(0,3)+"</span>"+
+        "<span style='font-size:20px;font-weight:900;color:"+(isToday?"#fff":"#111827")+"'> "+d.getDate()+"</span>"+
+        (isToday?"<span style='font-size:9px;font-weight:700;padding:2px 8px;border-radius:99px;background:rgba(255,255,255,.15);color:#fff;margin-left:6px'>OGGI</span>":
+        "<span style='font-size:9px;color:"+(dateStr<todayStr?"#EF4444":"#6B7280")+";margin-left:6px'>"+
+          (dateStr<todayStr?"passato":"")+
+        "</span>");
+      var rightSide=el("div",{style:"display:flex;align-items:center;gap:8px"});
+      if(prepsData.length){var cnt2=el("div",{style:"font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px;background:"+(isToday?"rgba(255,255,255,.15)":"rgba(10,22,40,.07)")+";color:"+(isToday?"#fff":"#374151"),text:prepsData.length+" prep"});cnt2.textContent=prepsData.length+" prep";rightSide.appendChild(cnt2);}
+      // Pulsante + aggiungi prep per questo giorno
+      var addBtn=el("button",{type:"button",style:"width:28px;height:28px;border-radius:8px;border:none;font-size:16px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;background:"+(isToday?"rgba(255,255,255,.2)":"rgba(10,22,40,.08)")+";color:"+(isToday?"#fff":"#0A1628"),text:"+"});
+      addBtn.title="Aggiungi prep per questo giorno";
+      (function(dateStr){
+        addBtn.addEventListener("click",function(e){e.stopPropagation();openFormTask({_planDate:dateStr});});
+      })(dateStr);
+      rightSide.appendChild(addBtn);
+      append(dayHead,dl,rightSide);dayCard.appendChild(dayHead);
+
+      // ── Nota del giorno ──
+      var noteRow=el("div",{style:"padding:5px 12px;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;gap:6px;background:#fafafa"});
+      var noteIco=el("span",{style:"font-size:12px;color:#9CA3AF",text:"📝"});
+      var noteI=el("input",{type:"text",placeholder:"Nota giorno…",value:note,style:"font-size:11px;height:26px;padding:0 6px;flex:1;border:none;background:transparent;outline:none;color:#374151;font-family:inherit"});
+      (function(ds,ni){
+        ni.addEventListener("blur",function(){if(!S.notes)S.notes={};S.notes[ds]=ni.value.trim();persistNotes();});
+        ni.addEventListener("keydown",function(e){if(e.key==="Enter")ni.blur();});
       })(dateStr,noteI);
-      noteRow.appendChild(noteI);dayCard.appendChild(noteRow);
-      // Preparazioni del giorno
-      if(!preps.length){
-        dayCard.appendChild(el("div",{style:"padding:12px 14px;font-size:12px;color:#9CA3AF;font-style:italic;text-align:center"},text:"—"));
+      append(noteRow,noteIco,noteI);dayCard.appendChild(noteRow);
+
+      // ── Lista prep del giorno ──
+      if(!prepsData.length){
+        var emptyRow=el("div",{style:"padding:12px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;opacity:.6"});
+        emptyRow.innerHTML="<span style='font-size:12px;color:#9CA3AF;font-style:italic'>Nessuna preparazione</span><span style='font-size:11px;color:#9CA3AF;margin-left:auto'>Tocca + per aggiungere</span>";
+        (function(ds){emptyRow.addEventListener("click",function(){openFormTask({_planDate:ds});});})(dateStr);
+        dayCard.appendChild(emptyRow);
       } else {
-        preps.forEach(function(t){
-          (function(t){
-            var isDone=S.done.indexOf(isDoneKey(t))>=0&&dateStr===todayStr;
+        prepsData.forEach(function(pd){
+          (function(pd){
+            var t=pd.task;
+            var isDone=(S.done.indexOf(isDoneKey(t))>=0)&&(dateStr===todayStr);
             var prio=calcPriority(t);
-            var fo=FREQ_MAP[t.freq]||{col:"#6B7280",ico:"◻"};
-            var row=el("div",{style:"display:flex;align-items:center;gap:8px;padding:8px 14px;border-bottom:1px solid #f9fafb;cursor:pointer;opacity:"+(isDone?"0.55":"1")});
-            var chk=el("div",{style:"width:22px;height:22px;border-radius:6px;border:2px solid "+(isDone?"#059669":"rgba(0,0,0,.15)")+";background:"+(isDone?"rgba(5,150,105,.12)":"transparent")+";display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#059669;flex-shrink:0;cursor:pointer"},text:isDone?"✓":"");
-            if(dateStr===todayStr){chk.addEventListener("click",function(e){e.stopPropagation();doToggle(t);});}
+            var fo=FREQ_MAP[t.freq]||{col:"#6B7280",ico:"◻",l:t.freq,bg:"rgba(107,114,128,.09)"};
+            // Controlla giacenza prodotto collegato
+            var prodInfo=null;
+            if(t.prodId){var pr=S.prods.find(function(p){return p.id===t.prodId;});if(pr&&pr.minQty&&parseQty(pr.qty)<parseQty(pr.minQty))prodInfo=pr;}
+
+            var row=el("div",{style:"display:flex;align-items:center;gap:8px;padding:9px 14px;border-bottom:1px solid #f9fafb;cursor:pointer;transition:background .12s;opacity:"+(isDone?"0.55":"1")});
+            row.addEventListener("mouseenter",function(){if(!isDone)row.style.background="#f9fafb";});
+            row.addEventListener("mouseleave",function(){row.style.background="";});
+
+            // Checkbox (spuntabile sempre, non solo oggi)
+            var chk=el("button",{type:"button",style:"width:24px;height:24px;border-radius:7px;border:2px solid "+(isDone?"#059669":"rgba(0,0,0,.15)")+";background:"+(isDone?"rgba(5,150,105,.12)":"transparent")+";display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#059669;flex-shrink:0;cursor:pointer;transition:all .15s",text:isDone?"✓":""});
+            (function(task,ds){
+              chk.addEventListener("click",function(e){
+                e.stopPropagation();
+                if(ds===todayStr){
+                  doToggle(task);
+                } else {
+                  // Per giorni non di oggi: toggle planDate done (salva in note come flag)
+                  var key="done_"+ds+"_"+task.id;
+                  if(!S.notes)S.notes={};
+                  if(S.notes[key]){delete S.notes[key];}
+                  else{S.notes[key]="1";}
+                  persistNotes();renderPrep(area);
+                }
+              });
+            })(t,dateStr);
+
             var info=el("div",{style:"flex:1;min-width:0"});
-            info.innerHTML="<div style='font-size:12px;font-weight:700;color:"+(isDone?"#9CA3AF":"#111827")+";overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-decoration:"+(isDone?"line-through":"none")+"'>"+esc(t.nome)+"</div>"+
-              "<div style='display:flex;gap:4px;margin-top:2px'><span style='font-size:9px;font-weight:700;padding:2px 6px;border-radius:5px;background:"+fo.bg||"rgba(0,0,0,.06)"+";color:"+fo.col+"'>"+fo.ico+" "+fo.l+"</span>"+(prio.level===1?"<span style='font-size:9px;font-weight:800;color:#C53030;background:rgba(197,48,48,.1);padding:2px 6px;border-radius:5px'>URGENTE</span>":"")+"</div>";
-            var goBtn=el("button",{type:"button",style:"font-size:10px;padding:3px 8px;border:none;border-radius:7px;background:rgba(10,22,40,.06);color:#111827;font-weight:700;cursor:pointer",text:"→"});
-            goBtn.addEventListener("click",function(e){e.stopPropagation();openDetail(t);});
-            append(row,chk,info,goBtn);dayCard.appendChild(row);
-          })(t);
+            var isDoneManual=S.notes&&S.notes["done_"+dateStr+"_"+t.id]==="1";
+            var showDone=isDone||isDoneManual;
+            info.innerHTML=
+              "<div style='font-size:12px;font-weight:700;color:"+(showDone?"#9CA3AF":"#111827")+";overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-decoration:"+(showDone?"line-through":"none")+"'>"+esc(t.nome)+"</div>"+
+              "<div style='display:flex;flex-wrap:wrap;gap:3px;margin-top:2px'>"+
+                "<span style='font-size:9px;font-weight:700;padding:2px 6px;border-radius:5px;background:"+fo.bg+";color:"+fo.col+"'>"+fo.ico+" "+fo.l+"</span>"+
+                (pd.manual?"<span style='font-size:9px;font-weight:700;padding:2px 6px;border-radius:5px;background:rgba(10,22,40,.06);color:#374151'>📌 pianificata</span>":"")+
+                (prio.level===1&&!showDone?"<span style='font-size:9px;font-weight:800;color:#C53030;background:rgba(197,48,48,.1);padding:2px 6px;border-radius:5px'>URGENTE</span>":"")+
+                (prodInfo?"<span style='font-size:9px;font-weight:700;color:#D97706;background:rgba(217,119,6,.1);padding:2px 6px;border-radius:5px'>⚠ "+esc(prodInfo.nome)+" bassa</span>":"")+
+              "</div>";
+
+            var btnRow=el("div",{style:"display:flex;gap:4px;flex-shrink:0"});
+            var detailBtn=el("button",{type:"button",style:"width:28px;height:28px;border-radius:8px;border:none;background:rgba(10,22,40,.06);color:#374151;font-size:12px;cursor:pointer",text:"›"});
+            detailBtn.addEventListener("click",function(e){e.stopPropagation();openDetail(t);});
+            var editBtn=el("button",{type:"button",style:"width:28px;height:28px;border-radius:8px;border:none;background:rgba(10,22,40,.06);color:#374151;font-size:12px;cursor:pointer",text:"✎"});
+            editBtn.addEventListener("click",function(e){e.stopPropagation();openFormTask(t);});
+            append(btnRow,detailBtn,editBtn);
+
+            // Aggiorna checkbox stato manuale
+            if(isDoneManual&&dateStr!==todayStr){chk.textContent="✓";chk.style.borderColor="#059669";chk.style.background="rgba(5,150,105,.12)";}
+
+            append(row,chk,info,btnRow);dayCard.appendChild(row);
+          })(pd);
         });
       }
       calScroll.appendChild(dayCard);
@@ -1045,85 +1234,231 @@ function doToggle(task,skipCongela){
   if(wasOpen&&!skipCongela){openDialogCongela(task);}
 }
 
-// ── Dialog: dopo aver completato una prep, chiedi quante unità congelare/aggiungere al frigo ──
+// ── Dialog: dopo aver completato una prep, chiedi dove aggiungere la produzione ──
+// La qty totale prodotta viene DIVISA tra frigo e congelatore (non duplicata)
 function openDialogCongela(task){
   var sheet=document.getElementById("sheet");var body=document.getElementById("sheet-body");
   body.innerHTML="";
+
+  var qTotale=parseQty(task.qty); // qty totale prodotta
+  var unit=task.unit;
+
+  // Stato: dove va la produzione
+  var dest="frigo"; // "frigo" | "congela" | "dividi"
+  var qFrigo=qTotale;
+  var qCong=0;
+  var selProdId="";
+  var linkedProds=S.prods.filter(function(p){return task.cat&&p.cat===task.cat;});
+
+  // Pre-selezione: se esiste un solo prodotto collegato, selezionalo
+  if(linkedProds.length===1)selProdId=linkedProds[0].id;
+
   // Header
   body.appendChild(el("div",{style:"font-size:17px;font-weight:800;color:var(--ink0);margin-bottom:4px;letter-spacing:-.2px",text:"✅ Preparazione completata!"}));
-  body.appendChild(el("div",{style:"font-size:13px;color:var(--ink2);margin-bottom:18px;line-height:1.55",html:"<strong>"+esc(task.nome)+"</strong> è pronta.<br>Vuoi aggiungere la produzione alla giacenza?"}));
-  // Quantità prodotta
-  var f={qtyFrigo:task.qty,qtyCongela:0,unit:task.unit};
-  // Sezione frigo MeP
-  var frigoBox=el("div",{style:"background:var(--green-bg);border:1.5px solid var(--green-bd);border-radius:var(--r-md);padding:13px 14px;margin-bottom:12px"});
-  frigoBox.appendChild(el("div",{style:"font-size:10px;font-weight:800;color:var(--green);letter-spacing:.6px;text-transform:uppercase;margin-bottom:8px",text:"◆ Aggiungi al Frigo MeP"}));
-  var linkedProds=S.prods.filter(function(p){return task.cat&&p.cat===task.cat;});
-  var selProdId="";
-  if(linkedProds.length){
-    var pSel=el("select",{class:"inp sel",style:"margin-bottom:8px;font-size:13px"});
-    pSel.appendChild(el("option",{value:"",text:"— Scegli prodotto da aggiornare —"}));
-    linkedProds.forEach(function(p){var o=el("option",{value:p.id,text:p.nome+" (giacenza: "+fmtQty(p.qty)+" "+p.unit+")"});pSel.appendChild(o);});
-    pSel.addEventListener("change",function(){selProdId=pSel.value;});
-    frigoBox.appendChild(pSel);
+  var lotMeta={enabled:false,lotto:"",ddt:""};
+  var lotAsk=el("div",{style:"background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:10px 12px;margin-bottom:10px"});
+  lotAsk.appendChild(el("div",{style:"font-size:11px;font-weight:800;color:var(--ink2);letter-spacing:.4px;margin-bottom:8px",text:"📋 Vuoi aggiungere Lotto / DDT prima della distribuzione?"}));
+  var lotBtns=el("div",{style:"display:flex;gap:8px;margin-bottom:8px"});
+  var lotYes=mkBtn("Sì","ghost",function(){lotMeta.enabled=true;renderLotMeta();});
+  var lotNo=mkBtn("No","ghost",function(){lotMeta.enabled=false;renderLotMeta();});
+  lotYes.style.minHeight=lotNo.style.minHeight="34px";
+  append(lotBtns,lotYes,lotNo);lotAsk.appendChild(lotBtns);
+  var lotMetaWrap=el("div");lotAsk.appendChild(lotMetaWrap);
+  body.appendChild(lotAsk);
+
+  var subHdr=el("div",{style:"font-size:13px;color:var(--ink2);margin-bottom:12px;line-height:1.55"});
+  subHdr.innerHTML="<strong>"+esc(task.nome)+"</strong> è pronta.<br>Hai prodotto <strong>"+fmtQty(qTotale)+" "+esc(unit)+"</strong>. Dove vuoi metterla?";
+  body.appendChild(subHdr);
+
+  function renderLotMeta(){
+    lotMetaWrap.innerHTML="";
+    lotYes.style.background=lotMeta.enabled?"var(--blue-bg)":"var(--surface)";
+    lotNo.style.background=!lotMeta.enabled?"var(--surface2)":"var(--surface)";
+    if(!lotMeta.enabled)return;
+    var g=el("div",{style:"display:grid;grid-template-columns:1fr 1fr;gap:8px"});
+    var l=el("input",{class:"inp",type:"text",placeholder:"N° Lotto",value:lotMeta.lotto});
+    var d=el("input",{class:"inp",type:"text",placeholder:"N° DDT",value:lotMeta.ddt});
+    l.addEventListener("input",function(){lotMeta.lotto=l.value;});
+    d.addEventListener("input",function(){lotMeta.ddt=d.value;});
+    append(g,l,d);lotMetaWrap.appendChild(g);
   }
-  frigoBox.appendChild(el("div",{style:"font-size:11px;color:var(--ink2);margin-bottom:7px",text:"Qty da aggiungere al frigo:"}));
-  var qFrigoCtrl=mkQty(fmtQty(f.qtyFrigo),function(v){f.qtyFrigo=v;});
-  frigoBox.appendChild(qFrigoCtrl);
-  body.appendChild(frigoBox);
-  // Sezione congelatore
-  var congBox=el("div",{style:"background:rgba(220,38,38,.06);border:1.5px solid rgba(220,38,38,.22);border-radius:var(--r-md);padding:13px 14px;margin-bottom:16px"});
-  congBox.appendChild(el("div",{style:"font-size:10px;font-weight:800;color:#DC2626;letter-spacing:.6px;text-transform:uppercase;margin-bottom:8px",text:"❄ Congela (aggiungi al Congelatore)"}));
-  congBox.appendChild(el("div",{style:"font-size:11px;color:var(--ink2);margin-bottom:7px",text:"Qty da congelare (0 = non congelo):"}));
-  var qCongCtrl=mkQty("0",function(v){f.qtyCongela=v;});
-  congBox.appendChild(qCongCtrl);
-  body.appendChild(congBox);
+  renderLotMeta();
+
+  // ── Selezione destinazione ──
+  var destGrid=el("div",{style:"display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px"});
+  function mkDestBtn(id,ico,lbl,col,bg){
+    var b=el("button",{type:"button",style:"padding:12px 6px;border-radius:var(--r-sm);border:2px solid;font-size:11px;font-weight:800;cursor:pointer;transition:all .15s;display:flex;flex-direction:column;align-items:center;gap:5px;font-family:var(--font)"});
+    b.innerHTML="<span style='font-size:20px'>"+ico+"</span><span>"+lbl+"</span>";
+    b.dataset.id=id;
+    function upd(){
+      var sel=dest===id;
+      b.style.borderColor=sel?col:"var(--border2)";
+      b.style.background=sel?bg:"var(--surface)";
+      b.style.color=sel?col:"var(--ink3)";
+    }
+    upd();
+    b.addEventListener("click",function(){dest=id;updateDest();});
+    destGrid._upd=destGrid._upd||[];destGrid._upd.push(upd);
+    return b;
+  }
+  function updateDest(){
+    // Aggiorna tutti i bottoni
+    if(destGrid._upd)destGrid._upd.forEach(function(fn){fn();});
+    // Aggiorna quantità
+    if(dest==="frigo"){qFrigo=qTotale;qCong=0;}
+    else if(dest==="congela"){qFrigo=0;qCong=qTotale;}
+    else{// dividi: frigo = metà, congela = metà
+      qFrigo=Math.floor(qTotale/2*1000)/1000;
+      qCong=Math.round((qTotale-qFrigo)*1000)/1000;
+    }
+    renderQtySplit();
+    renderProdSelector();
+  }
+  append(destGrid,
+    mkDestBtn("frigo","🌡","Solo Frigo","var(--green)","var(--green-bg)"),
+    mkDestBtn("congela","❄","Solo Congela","#DC2626","rgba(220,38,38,.08)"),
+    mkDestBtn("dividi","↕","Dividi","var(--gold)","var(--gold-bg)")
+  );
+  body.appendChild(destGrid);
+
+  // ── Pannello quantità dinamico ──
+  var splitPanel=el("div",{style:"margin-bottom:14px"});
+  body.appendChild(splitPanel);
+
+  function renderQtySplit(){
+    splitPanel.innerHTML="";
+    if(dest==="frigo"){
+      var box=el("div",{style:"background:var(--green-bg);border:1.5px solid var(--green-bd);border-radius:var(--r-md);padding:12px 14px"});
+      box.innerHTML="<div style='font-size:10px;font-weight:800;color:var(--green);letter-spacing:.6px;text-transform:uppercase;margin-bottom:8px'>◆ Frigo MeP — qty da aggiungere</div>";
+      var qc=mkQty(fmtQty(qFrigo),function(v){qFrigo=parseQty(v);qCong=0;});
+      box.appendChild(qc);
+      splitPanel.appendChild(box);
+    } else if(dest==="congela"){
+      var box=el("div",{style:"background:rgba(220,38,38,.06);border:1.5px solid rgba(220,38,38,.22);border-radius:var(--r-md);padding:12px 14px"});
+      box.innerHTML="<div style='font-size:10px;font-weight:800;color:#DC2626;letter-spacing:.6px;text-transform:uppercase;margin-bottom:8px'>❄ Congelatore — qty da aggiungere</div>";
+      var qc=mkQty(fmtQty(qCong),function(v){qCong=parseQty(v);qFrigo=0;});
+      box.appendChild(qc);
+      splitPanel.appendChild(box);
+    } else {
+      // Dividi
+      var grid=el("div",{style:"display:grid;grid-template-columns:1fr 1fr;gap:10px"});
+      var fBox=el("div",{style:"background:var(--green-bg);border:1.5px solid var(--green-bd);border-radius:var(--r-md);padding:10px 12px"});
+      fBox.innerHTML="<div style='font-size:9px;font-weight:800;color:var(--green);letter-spacing:.4px;margin-bottom:6px'>◆ FRIGO</div>";
+      fBox.appendChild(mkQty(fmtQty(qFrigo),function(v){
+        qFrigo=parseQty(v);
+        // aggiorna il display totale
+        updateTotale();
+      }));
+      var cBox=el("div",{style:"background:rgba(220,38,38,.06);border:1.5px solid rgba(220,38,38,.22);border-radius:var(--r-md);padding:10px 12px"});
+      cBox.innerHTML="<div style='font-size:9px;font-weight:800;color:#DC2626;letter-spacing:.4px;margin-bottom:6px'>❄ CONGELA</div>";
+      cBox.appendChild(mkQty(fmtQty(qCong),function(v){
+        qCong=parseQty(v);
+        updateTotale();
+      }));
+      append(grid,fBox,cBox);
+      splitPanel.appendChild(grid);
+      var totEl=el("div",{style:"margin-top:8px;font-size:11px;font-weight:700;color:var(--ink2);text-align:center",id:"split-totale"});
+      splitPanel.appendChild(totEl);
+      function updateTotale(){var tot=qFrigo+qCong;totEl.textContent="Totale: "+fmtQty(tot)+" "+unit+(tot>qTotale?" ⚠ supera la produzione":"");totEl.style.color=tot>qTotale?"var(--red)":"var(--ink2)";}
+      updateTotale();
+    }
+  }
+
+  // ── Selettore prodotto frigo (solo se dest include frigo) ──
+  var prodPanel=el("div",{style:"margin-bottom:16px"});
+  body.appendChild(prodPanel);
+
+  function renderProdSelector(){
+    prodPanel.innerHTML="";
+    if(dest==="congela")return; // nessun prodotto frigo da selezionare
+    if(!linkedProds.length){
+      var info=el("div",{style:"font-size:11px;color:var(--ink2);background:var(--surface2);border-radius:var(--r-sm);padding:9px 12px;border:1px solid var(--border)"});
+      info.textContent="Verrà creato un nuovo prodotto frigo: "+task.nome;
+      prodPanel.appendChild(info);
+    } else {
+      prodPanel.appendChild(el("label",{class:"lbl",text:"Prodotto frigo da aggiornare"}));
+      var pSel=el("select",{class:"inp sel",style:"font-size:13px"});
+      pSel.appendChild(el("option",{value:"",text:"— Crea nuovo prodotto —"}));
+      linkedProds.forEach(function(p){
+        var o=el("option",{value:p.id,text:p.nome+" (giacenza attuale: "+fmtQty(p.qty)+" "+p.unit+")"});
+        if(p.id===selProdId)o.selected=true;
+        pSel.appendChild(o);
+      });
+      pSel.addEventListener("change",function(){selProdId=pSel.value;});
+      prodPanel.appendChild(pSel);
+    }
+  }
+
+  renderQtySplit();
+  renderProdSelector();
+
   // Bottoni
   var btnRow=el("div",{style:"display:flex;gap:10px;margin-bottom:10px"});
   var skipBtn=el("button",{type:"button",class:"btn btn-ghost btn-sq",text:"✕"});skipBtn.addEventListener("click",closeSheet);
   var saveBtn=mkBtn("✅ Conferma giacenza","primary full",function(){
-    var qf=parseQty(f.qtyFrigo);var qc=parseQty(f.qtyCongela);
-    // Aggiorna prodotto frigo MeP
+    var qf=dest==="congela"?0:Math.max(0,parseQty(qFrigo));
+    var qc=dest==="frigo"?0:Math.max(0,parseQty(qCong));
+
+    // Validazione: non può superare il totale prodotto
+    if(qf+qc>qTotale+0.001){
+      flash("⚠ La somma supera la quantità prodotta ("+fmtQty(qTotale)+" "+unit+")","err");
+      return;
+    }
+
+    // ── Aggiorna frigo MeP ──
     if(qf>0){
       if(selProdId){
-        // Aggiorna prodotto selezionato: somma la qty prodotta
         for(var i=0;i<S.prods.length;i++){
           if(S.prods[i].id===selProdId){
             S.prods[i]=Object.assign({},S.prods[i],{qty:parseQty(S.prods[i].qty)+qf});break;
           }
         }
-        persist();
-        flash("◆ Frigo aggiornato: +"+fmtQty(qf)+" "+f.unit,"gold");
-      } else if(linkedProds.length===0){
-        // Crea nuovo prodotto frigo se non esiste
-        var newProd={id:uid(),nome:task.nome,cat:task.cat||"sides",qty:qf,unit:f.unit,minQty:null,scad:"",note:"← Prep "+today()};
+        persist();flash("◆ Frigo aggiornato: +"+fmtQty(qf)+" "+unit,"gold");
+      } else {
+        var newProd={id:uid(),nome:task.nome,cat:task.cat||"sides",qty:qf,unit:unit,minQty:null,scad:"",note:"← Prep "+today()};
         S.prods.push(newProd);persist();
-        flash("◆ Prodotto frigo creato: "+fmtQty(qf)+" "+f.unit,"gold");
+        selProdId=newProd.id; // usalo per il link congelatore
+        flash("◆ Prodotto frigo creato: "+fmtQty(qf)+" "+unit,"gold");
       }
     }
-    // Aggiungi al congelatore via bridge
+
+    // ── Aggiungi al congelatore via bridge ──
+    var distId=uid();
+    var frigoRecId="";
     if(qc>0){
+      frigoRecId=uid();
       var frigoRec={
-        id:uid(),nome:task.nome,
-        cat:task.cat||"sides",
-        qty:qc,unit:f.unit,
-        dc:today(),scad:"",lotto:"",ddt:"",
+        id:frigoRecId,nome:task.nome,cat:task.cat||"sides",
+        qty:qc,unit:unit,
+        dc:today(),scad:"",lotto:lotMeta.enabled?lotMeta.lotto:"",ddt:lotMeta.enabled?lotMeta.ddt:"",
         note:"← Prep "+task.nome,
         _acct:S.profile.partita,
-        _mepId:selProdId||""
+        _mepId:selProdId||"",
+        _distId:distId
       };
-      // Scrive nel bridge (il Congelatore lo leggerà e lo importerà)
       var b=Object.assign({},_bridgeCache);
       if(!Array.isArray(b.frigo))b.frigo=[];
       b.frigo.push(Object.assign({},frigoRec,{source:"mep_prep",updatedAt:new Date().toISOString()}));
       b.lastUpdate=new Date().toISOString();
       _bridgeCache=b;_writeBridgeFirestore(b);
-      flash("❄ Aggiunto al congelatore: "+fmtQty(qc)+" "+f.unit);
+      if(qf>0)flash("◆+❄ Frigo e congelatore aggiornati","gold");
+      else flash("❄ Aggiunto al congelatore: "+fmtQty(qc)+" "+unit);
     }
+
+    // Archivia
+    var archRec=Object.assign({},task,{archiviato:today(),_qtyFrigo:qf,_qtyCong:qc,_unit:unit,_lotto:(lotMeta.enabled?lotMeta.lotto:""),_ddt:(lotMeta.enabled?lotMeta.ddt:"")});
+    if(!S.prepArchivio)S.prepArchivio=[];
+    S.prepArchivio.push(archRec);
+    persistPrepArchivio();
+    if(!Array.isArray(S.prepDistrib))S.prepDistrib=[];
+    S.prepDistrib.push({id:distId,taskId:task.id,nome:task.nome,data:today(),unit:unit,qtyTot:qTotale,qtyFrigo:qf,qtyCong:qc,mepProdId:selProdId||"",frigoId:frigoRecId,lotto:lotMeta.enabled?lotMeta.lotto:"",ddt:lotMeta.enabled?lotMeta.ddt:""});
+    persistPrepDistrib();
     closeSheet();refreshAll();
   });
   append(btnRow,skipBtn,saveBtn);body.appendChild(btnRow);
   body.appendChild(mkBtn("Salta — non aggiungere","ghost full",closeSheet));
   body.appendChild(el("div",{style:"height:10px"}));
+
   // Apri sheet
   document.getElementById("overlay").classList.add("show");
   sheet.classList.add("open");
@@ -1404,10 +1739,15 @@ function renderDetail(body,taskId){
 function openFormTask(init){openSheet(function(b){renderFormTask(b,init);});}
 function renderFormTask(body,init){
   body.innerHTML="";var isEdit=!!(init&&init.id);
-  var f={nome:"",cat:"",freq:"giornaliero",qty:"1",unit:"pz",durata:"",scad:"",note:"",steps:[]};
-  if(init)Object.assign(f,init,{qty:fmtQty(init.qty!=null?init.qty:1),steps:JSON.parse(JSON.stringify(init.steps||[]))});
+  // _planDate viene passato dal calendario (non è un record esistente)
+  var planDateHint=(init&&init._planDate)?init._planDate:"";
+  var f={nome:"",cat:"",freq:"giornaliero",qty:"1",unit:"pz",durata:"",scad:"",note:"",steps:[],planDate:planDateHint};
+  if(isEdit)Object.assign(f,init,{qty:fmtQty(init.qty!=null?init.qty:1),steps:JSON.parse(JSON.stringify(init.steps||[]))});
   body.appendChild(el("div",{style:"font-size:17px;font-weight:800;color:var(--ink0);margin-bottom:20px;letter-spacing:-.2px",text:isEdit?"Modifica Preparazione":"Nuova Preparazione"}));
-  body.appendChild(mkField("Nome preparazione *","text","es. Fondo Bruno, Ragù, Salsa verde…",f.nome,function(v){f.nome=v;},{af:true,cap:"sentences"}));
+  var taskNomeField=mkField("Nome preparazione *","text","es. Fondo Bruno, Ragù, Salsa verde…",f.nome,function(v){f.nome=capFirst(v);},{af:true,cap:"sentences"});
+  var taskNomeInp=taskNomeField.querySelector("input");
+  if(taskNomeInp){applyCapFirst(taskNomeInp);mkAutoSuggest(taskNomeInp,getMepAllNomi);}
+  body.appendChild(taskNomeField);
   // Categoria prodotto
   var cW=el("div",{style:"margin-bottom:14px"});cW.appendChild(el("label",{class:"lbl",text:"Categoria (opzionale)"}));var cS=el("select",{class:"inp sel"});cS.appendChild(el("option",{value:"",text:"— Nessuna categoria —"}));PCK.forEach(function(k){var o=el("option",{value:k,text:PROD_CAT[k].ico+" "+PROD_CAT[k].label});if(k===f.cat)o.selected=true;cS.appendChild(o);});cS.addEventListener("change",function(){f.cat=cS.value;});cW.appendChild(cS);body.appendChild(cW);
   // FREQUENZA GRID
@@ -1422,18 +1762,50 @@ function renderFormTask(body,init){
     })(fo);
   });
   fW.appendChild(fG);body.appendChild(fW);
+  // ── PIANIFICAZIONE MANUALE ──
+  var pdW=el("div",{style:"margin-bottom:14px;background:rgba(10,22,40,.04);border:1px solid rgba(10,22,40,.12);border-radius:12px;padding:12px 14px"});
+  pdW.appendChild(el("label",{class:"lbl",style:"color:#0A1628",text:"📅 Data pianificata (opzionale)"}));
+  pdW.appendChild(el("div",{style:"font-size:11px;color:#6B7280;margin-bottom:8px",text:"Assegna questa prep a un giorno specifico del calendario"}));
+  var pdRow=el("div",{style:"display:flex;align-items:center;gap:8px"});
+  var pdInp=el("input",{type:"date",value:f.planDate||"",style:"height:44px;padding:0 12px;border:1.5px solid rgba(10,22,40,.15);border-radius:10px;font-size:13px;font-weight:600;color:#111827;background:#fff;flex:1;font-family:inherit"});
+  pdInp.addEventListener("change",function(){f.planDate=pdInp.value;});
+  var pdClear=el("button",{type:"button",style:"height:36px;padding:0 12px;border:1px solid #e5e7eb;border-radius:9px;background:#fff;color:#6B7280;font-size:12px;font-weight:700;cursor:pointer",text:"Rimuovi"});
+  pdClear.addEventListener("click",function(){f.planDate="";pdInp.value="";});
+  append(pdRow,pdInp,pdClear);pdW.appendChild(pdRow);
+  body.appendChild(pdW);
   // Qty + unità
   var qR=el("div",{style:"display:grid;grid-template-columns:3fr 2fr;gap:10px;margin-bottom:14px"});var qD=el("div");qD.appendChild(el("label",{class:"lbl",text:"Quantità da produrre"}));qD.appendChild(mkQty(f.qty,function(v){f.qty=v;}));qR.appendChild(qD);var uD=el("div");uD.appendChild(el("label",{class:"lbl",text:"Unità"}));var uS=el("select",{class:"inp sel",style:"height:50px"});UNITS.forEach(function(u){var o=el("option",{value:u,text:u});if(u===f.unit)o.selected=true;uS.appendChild(o);});uS.addEventListener("change",function(){f.unit=uS.value;});uD.appendChild(uS);qR.appendChild(uD);body.appendChild(qR);
-  // Durata RIMOSSA — non più necessaria
-  body.appendChild(mkField("Scadenza (opzionale)","date","",f.scad,function(v){f.scad=v;}));
+  // Scadenza prodotto (dopo la preparazione)
+  body.appendChild(mkField("Scadenza prodotto (opzionale)","date","",f.scad,function(v){f.scad=v;}));
   var nW=el("div",{style:"margin-bottom:14px"});nW.appendChild(el("label",{class:"lbl",text:"Note (opzionale)"}));var nT=el("textarea",{class:"inp",placeholder:"Annotazioni, varianti, attenzioni…",rows:"2",style:"min-height:68px"});nT.textContent=f.note||"";nT.addEventListener("input",function(){f.note=nT.value;});nW.appendChild(nT);body.appendChild(nW);
   // Passaggi
   var sO=el("div",{style:"margin-bottom:16px"});var sH=el("div",{style:"display:flex;align-items:center;justify-content:space-between;margin-bottom:10px"});sH.appendChild(el("label",{class:"lbl",style:"margin:0",text:"Passaggi di produzione"}));var aS=mkBtn("+ Step","outline",function(){f.steps.push({titolo:"",desc:""});rS();});aS.style.cssText="min-height:30px;font-size:11px;border-radius:8px;padding:0 10px;border-color:var(--border2);color:var(--ink2);letter-spacing:.02em";sH.appendChild(aS);sO.appendChild(sH);var sL=el("div");sO.appendChild(sL);body.appendChild(sO);
   function rS(){sL.innerHTML="";if(!f.steps.length){sL.appendChild(el("div",{style:"font-size:11px;color:var(--ink3);font-style:italic;padding:3px 0",text:"Aggiungi i passaggi della preparazione"}));return;}
     f.steps.forEach(function(step,idx){(function(step,idx){var box=el("div",{style:"background:var(--surface2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:11px 14px;margin-bottom:9px;animation:fadeIn .2s ease"});var tR=el("div",{style:"display:flex;align-items:center;gap:8px;margin-bottom:9px"});var nb=el("div",{style:"width:22px;height:22px;border-radius:50%;background:#0A1628;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0",text:String(idx+1)});var tI=el("input",{class:"inp",type:"text",placeholder:"Titolo passaggio *",value:step.titolo||"",autocomplete:"off",autocorrect:"off",autocapitalize:"sentences",style:"flex:1;height:40px;padding:0 12px;font-size:13px"});tI.addEventListener("input",function(){f.steps[idx].titolo=tI.value;});var dB=el("button",{type:"button",class:"btn btn-sq sm danger",text:"✕"});dB.addEventListener("click",function(){f.steps.splice(idx,1);rS();});append(tR,nb,tI,dB);box.appendChild(tR);var dT=el("textarea",{class:"inp",placeholder:"Descrizione (opzionale)…",rows:"2",style:"min-height:52px;font-size:13px"});dT.textContent=step.desc||"";dT.addEventListener("input",function(){f.steps[idx].desc=dT.value;});box.appendChild(dT);
     if(f.steps.length>1){var rb=el("div",{style:"display:flex;gap:5px;margin-top:7px;justify-content:flex-end"});if(idx>0){var uB=el("button",{type:"button",class:"btn btn-sq sm",text:"↑"});uB.addEventListener("click",function(){var t=f.steps[idx-1];f.steps[idx-1]=f.steps[idx];f.steps[idx]=t;rS();});rb.appendChild(uB);}if(idx<f.steps.length-1){var dBt=el("button",{type:"button",class:"btn btn-sq sm",text:"↓"});dBt.addEventListener("click",function(){var t=f.steps[idx+1];f.steps[idx+1]=f.steps[idx];f.steps[idx]=t;rS();});rb.appendChild(dBt);}box.appendChild(rb);}sL.appendChild(box);})(step,idx);});}rS();
-  var sv=mkBtn(isEdit?"Salva modifiche":"Aggiungi preparazione","primary lg full",function(){if(!f.nome.trim()){flash("Inserisci un nome","err");return;}f.steps=f.steps.filter(function(s){return(s.titolo||"").trim();});var rec={id:isEdit?init.id:uid(),nome:f.nome.trim(),cat:f.cat||"",freq:f.freq,qty:parseQty(f.qty),unit:f.unit,durata:f.durata||"",scad:f.scad||"",note:f.note||"",steps:f.steps};if(isEdit){for(var i=0;i<S.tasks.length;i++){if(S.tasks[i].id===init.id){S.tasks[i]=rec;break;}}}else{S.tasks.push(rec);}persist();flash(isEdit?"Salvato ✓":"Aggiunto ✓");closeSheet();refreshAll();});
-  sv.style.marginBottom="10px";body.appendChild(sv);if(isEdit)body.appendChild(mkBtn("Elimina","danger full",function(){showDlg("Eliminare '"+init.nome+"'?",function(){S.tasks=S.tasks.filter(function(t){return t.id!==init.id;});persist();persistDone();flash("Rimosso","info");closeSheet();refreshAll();},"Elimina");}));body.appendChild(mkBtn("Annulla","ghost full",closeSheet));body.appendChild(el("div",{style:"height:10px"}));
+  var sv=mkBtn(isEdit?"Salva modifiche":"Aggiungi preparazione","primary lg full",function(){
+    if(!f.nome.trim()){flash("Inserisci un nome","err");return;}
+    f.steps=f.steps.filter(function(s){return(s.titolo||"").trim();});
+    var rec={
+      id:isEdit?init.id:uid(),
+      nome:f.nome.trim(),cat:f.cat||"",freq:f.freq,
+      qty:parseQty(f.qty),unit:f.unit,
+      durata:"",scad:f.scad||"",note:f.note||"",
+      steps:f.steps,
+      planDate:f.planDate||""  // data pianificata sul calendario
+    };
+    if(isEdit){for(var i=0;i<S.tasks.length;i++){if(S.tasks[i].id===init.id){S.tasks[i]=rec;break;}}}
+    else{S.tasks.push(rec);}
+    persist();
+    // Sync bridge: aggiorna anche giacenza se prodotto collegato
+    syncProdsToBridge();
+    flash(isEdit?"Salvato ✓":"Aggiunto ✓"+(f.planDate?" · 📅 "+f.planDate:""));
+    closeSheet();refreshAll();
+  });
+  sv.style.marginBottom="10px";body.appendChild(sv);
+  if(isEdit)body.appendChild(mkBtn("Elimina","danger full",function(){showDlg("Eliminare '"+init.nome+"'?",function(){S.tasks=S.tasks.filter(function(t){return t.id!==init.id;});persist();persistDone();flash("Rimosso","info");closeSheet();refreshAll();},"Elimina");}));
+  body.appendChild(mkBtn("Annulla","ghost full",closeSheet));
+  body.appendChild(el("div",{style:"height:10px"}));
 }
 
 // ══════════════════════════════════════════════════════════════════════
@@ -1445,7 +1817,10 @@ function renderFormProd(body,init){
   var f={nome:"",cat:"pesce",qty:"0",unit:"pz",minQty:"",scad:"",note:""};
   if(init)Object.assign(f,init,{qty:fmtQty(init.qty!=null?init.qty:0),minQty:init.minQty!=null?fmtQty(init.minQty):""});
   body.appendChild(el("div",{style:"font-size:17px;font-weight:800;color:var(--ink0);margin-bottom:20px;letter-spacing:-.2px",text:isEdit?"Modifica Prodotto":"Nuovo Prodotto Frigo"}));
-  body.appendChild(mkField("Nome prodotto *","text","es. Rombo, Agnello, Jus di vitello…",f.nome,function(v){f.nome=v;},{af:true,cap:"sentences"}));
+  var prodNomeField=mkField("Nome prodotto *","text","es. Rombo, Agnello, Jus di vitello…",f.nome,function(v){f.nome=capFirst(v);},{af:true,cap:"sentences"});
+  var prodNomeInp=prodNomeField.querySelector("input");
+  if(prodNomeInp){applyCapFirst(prodNomeInp);mkAutoSuggest(prodNomeInp,getMepAllNomi);}
+  body.appendChild(prodNomeField);
   var cW=el("div",{style:"margin-bottom:14px"});cW.appendChild(el("label",{class:"lbl",text:"Categoria"}));var cS=el("select",{class:"inp sel"});PCK.forEach(function(k){var o=el("option",{value:k,text:PROD_CAT[k].ico+" "+PROD_CAT[k].label});if(k===f.cat)o.selected=true;cS.appendChild(o);});cS.addEventListener("change",function(){f.cat=cS.value;});cW.appendChild(cS);body.appendChild(cW);
   var qR=el("div",{style:"display:grid;grid-template-columns:3fr 2fr;gap:10px;margin-bottom:14px"});var qD=el("div");qD.appendChild(el("label",{class:"lbl",text:"Quantità attuale"}));qD.appendChild(mkQty(f.qty,function(v){f.qty=v;}));qR.appendChild(qD);var uD=el("div");uD.appendChild(el("label",{class:"lbl",text:"Unità"}));var uS=el("select",{class:"inp sel",style:"height:50px"});UNITS.forEach(function(u){var o=el("option",{value:u,text:u});if(u===f.unit)o.selected=true;uS.appendChild(o);});uS.addEventListener("change",function(){f.unit=uS.value;});uD.appendChild(uS);qR.appendChild(uD);body.appendChild(qR);
   var mW=el("div",{style:"background:rgba(197,48,48,.05);border:1.5px solid var(--red-bd);border-radius:var(--r-sm);padding:13px 14px;margin-bottom:14px"});
@@ -1591,36 +1966,8 @@ function renderFrigoSync(area){
     "<div style='width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#B91C1C,#DC2626);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;flex-shrink:0'>❄</div>"+
     "<div style='flex:1;min-width:0'><div style='font-size:14px;font-weight:800;color:#DC2626;letter-spacing:-.2px'>Congelatore</div><div style='font-size:11px;color:var(--ink3);font-weight:600'>Sync: "+lastSync+"</div></div>"+
     "<div style='display:flex;align-items:center;gap:5px'><div style='width:7px;height:7px;border-radius:50%;background:"+(frigoItems.length>0?"#059669":"#9CA3AF")+";flex-shrink:0'></div><span style='font-size:11px;font-weight:700;color:var(--ink3)'>"+(frigoItems.length>0?"Online":"Nessun dato")+"</span></div></div>"+
-    "<div style='font-size:11px;color:var(--ink3);line-height:1.55'>Item dal congelatore collegati ai tuoi prodotti. Tocca per sincronizzare la quantità nel frigo MeP.</div>";
+    "<div style='font-size:11px;color:var(--ink3);line-height:1.55'>Item dal congelatore collegati ai tuoi prodotti. Trasferisci manualmente le quantità dal ❄ al ◆ senza auto-allineamenti.</div>";
   area.appendChild(topBar);
-
-  // Aggiungi pulsante "Sincronizza tutto"
-  if(frigoItems.length>0){
-    var syncAllBtn=mkBtn("⟳ Sincronizza tutte le quantità","ghost full",function(){
-      var count=0;
-      frigoItems.forEach(function(fi){
-        if(fi._mepId){
-          // Cerca prodotto MeP corrispondente
-          var mepProd=findById(S.prods,fi._mepId);
-          if(mepProd){
-            // Aggiorna solo se diverso
-            if(parseQty(fi.qty)!==parseQty(mepProd.qty)){
-              for(var i=0;i<S.prods.length;i++){
-                if(S.prods[i].id===fi._mepId){
-                  S.prods[i]=Object.assign({},S.prods[i],{qty:String(parseQty(fi.qty))});
-                  count++;break;
-                }
-              }
-            }
-          }
-        }
-      });
-      if(count>0){persist();flash("✅ "+count+" quantità sincronizzate dal congelatore","gold");refreshAll();}
-      else flash("◆ Nessuna differenza da sincronizzare","info");
-    });
-    syncAllBtn.style.cssText="margin:10px 16px 0;width:calc(100% - 32px);min-height:46px;font-size:13px;border-radius:var(--r-sm)";
-    area.appendChild(syncAllBtn);
-  }
 
   var scroll=el("div",{style:"flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:10px 16px;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 24px)"});
   area.appendChild(scroll);
@@ -1685,17 +2032,39 @@ function buildFrigoCard(fi,isLinked){
 
     if(hasDiff){
       var actions=el("div",{style:"display:grid;grid-template-columns:1fr 1fr;gap:8px"});
-      var btnFrigo2Mep=el("button",{type:"button",class:"btn btn-green btn-sm btn-full",text:"❄→◆ Usa qty congelatore"});
+      var btnFrigo2Mep=el("button",{type:"button",class:"btn btn-green btn-sm btn-full",text:"❄→◆ Sposta quantità"});
       btnFrigo2Mep.style.fontSize="11px";btnFrigo2Mep.style.minHeight="40px";
       (function(fi,mepProd){
         btnFrigo2Mep.addEventListener("click",function(){
-          applyFrigoQtyToProd(mepProd.id,fi.qty);
-          flash("✅ Qty frigo MeP aggiornata a "+fmtQty(fi.qty)+" "+fi.unit);
+          openSheet(function(b){
+            b.innerHTML="";
+            b.appendChild(el("div",{style:"font-size:17px;font-weight:800;color:var(--ink0);margin-bottom:12px",text:"Sposta da congelatore a frigo"}));
+            b.appendChild(el("div",{style:"font-size:12px;color:var(--ink2);margin-bottom:10px",text:fi.nome+" · Disponibile ❄ "+fmtQty(fi.qty)+" "+fi.unit}));
+            var q=[Math.min(parseQty(fi.qty),1)];
+            b.appendChild(mkQty(q[0],function(v){q[0]=parseQty(v);}));
+            var save=mkBtn("Conferma spostamento","primary full",function(){
+              var move=parseQty(q[0]);
+              if(move<=0){flash("Inserisci una quantità > 0","err");return;}
+              if(move>parseQty(fi.qty)){flash("Supera disponibile in congelatore","err");return;}
+              var newFrigo=parseQty(fi.qty)-move;
+              for(var i=0;i<S.prods.length;i++){if(S.prods[i].id===mepProd.id){S.prods[i]=Object.assign({},S.prods[i],{qty:String(parseQty(S.prods[i].qty)+move)});break;}}
+              var bData=Object.assign({},_bridgeCache);
+              if(!Array.isArray(bData.frigo))bData.frigo=[];
+              for(var j=0;j<bData.frigo.length;j++){if(bData.frigo[j].id===fi.id){bData.frigo[j]=Object.assign({},bData.frigo[j],{qty:newFrigo,updatedAt:new Date().toISOString()});break;}}
+              bData.lastUpdate=new Date().toISOString();
+              _bridgeCache=bData;_writeBridgeFirestore(bData);persist();
+              flash("✅ Spostati "+fmtQty(move)+" "+fi.unit+" dal congelatore al frigo","gold");
+              closeSheet();refreshAll();
+            });
+            save.style.marginTop="12px";
+            b.appendChild(save);
+            b.appendChild(mkBtn("Annulla","ghost full",closeSheet));
+          });
         });
       })(fi,mepProd);
-      var btnMep2Frigo=el("button",{type:"button",class:"btn btn-ghost btn-sm btn-full",text:"◆→❄ Mantieni qty MeP"});
+      var btnMep2Frigo=el("button",{type:"button",class:"btn btn-ghost btn-sm btn-full",text:"Info"});
       btnMep2Frigo.style.fontSize="11px";btnMep2Frigo.style.minHeight="40px";
-      btnMep2Frigo.addEventListener("click",function(){flash("◆ Quantità MeP mantenuta — aggiorna dal congelatore se necessario","info");});
+      btnMep2Frigo.addEventListener("click",function(){flash("Trasferisci solo la quantità realmente prelevata dal congelatore","info");});
       append(actions,btnFrigo2Mep,btnMep2Frigo);card.appendChild(actions);
     }else{
       card.appendChild(el("div",{style:"font-size:11px;color:var(--green);font-weight:700;text-align:center",text:"✓ Quantità allineate"}));
@@ -1735,10 +2104,8 @@ function renderSettings(body){
   var syncNowBtn=mkBtn("⟳ Pubblica prodotti al bridge ora","ghost full",function(){syncProdsToBridge();flash("✅ Bridge aggiornato · "+S.prods.length+" prodotti pubblicati");});
   syncNowBtn.style.marginBottom="10px";body.appendChild(syncNowBtn);
   body.appendChild(el("div",{style:"height:1px;background:var(--border);margin:18px 0"}));
-  var sw=mkBtn("Cambia partita","ghost full",function(){closeSheet();setTimeout(function(){stor.rm(PREP_PROFILE);S.profile=null;S.tasks=[];S.prods=[];S.piatti=[];S.done=[];S.doneDate={};S.sdone=[];renderOnboarding();document.getElementById("fab").classList.add("hidden");},380);});sw.style.marginBottom="10px";body.appendChild(sw);
-  body.appendChild(el("div",{style:"height:1px;background:var(--border);margin:18px 0"}));
   body.appendChild(divS("Account"));
-  var sw=mkBtn("Cambia partita","ghost full",function(){closeSheet();setTimeout(function(){stor.rm(PREP_PROFILE);S.profile=null;S.tasks=[];S.prods=[];S.piatti=[];S.done=[];S.doneDate={};S.sdone=[];renderOnboarding();document.getElementById("fab").classList.add("hidden");},380);});sw.style.marginBottom="10px";body.appendChild(sw);
+  var swBtn=mkBtn("Cambia partita","ghost full",function(){closeSheet();setTimeout(function(){stor.rm(PREP_PROFILE);S.profile=null;S.tasks=[];S.prods=[];S.piatti=[];S.done=[];S.doneDate={};S.sdone=[];renderOnboarding();document.getElementById("fab").classList.add("hidden");},380);});swBtn.style.marginBottom="10px";body.appendChild(swBtn);
   body.appendChild(el("div",{style:"height:1px;background:var(--border);margin:18px 0"}));
   body.appendChild(divS("Reset totale"));
   body.appendChild(mkBtn("Elimina tutti i dati","danger full",function(){showDlg("Eliminare TUTTI i dati? Non si può annullare.",function(){S.tasks=[];S.prods=[];S.piatti=[];S.done=[];S.doneDate={};S.sdone=[];persist();persistDone();persistSdone();flash("Eliminato","info");closeSheet();refreshAll();},"Elimina tutto");}));
